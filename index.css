@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+html{
+    font-size: 16px;
+}
+*{
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif, serif;
+    letter-spacing: 0.5px;
+    color: #451e3e;
+    font-weight: bold;
+}
+body{
+    background-color: #251e3e ;
+    min-width: 100vw; min-height: 100vh;
+    overflow: hidden;
+}
+main{
+    width: 100vw; height: 100vh;
+    background-color:  #251e3e;
+    display: grid;
+    grid-template-columns: 80vw;
+    grid-template-rows: auto 1fr;
+    gap: 10px;
+    justify-content: center;
+    justify-items: center; align-items: center;
+    padding: 4px 16px;
+    padding-top: 32px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+main>button{
+    position: absolute; top: 0; right: 0;
+    margin: 4px 8px; padding: 4px 8px;
+    border: 1px solid white;
+    background-color: #451e3e;
+}
+
+main>input{
+    padding: 4px 8px;
+    min-width: 70%;
+    border: 0;
+    border-radius: 50vw;
+    transition: box-shadow 12s ease 0;
+    color: #251e3e;
+    font-weight: 500;
+    border: 1px solid black;
+}
+main>input:focus{
+  box-shadow: 0 2px 1px aqua;  
+  outline: none;
+}
+main>input:focus::placeholder{
+    color: blue;
+}
+main>section{
+    min-width: 100%; min-height: 100%;
+    text-align: justify;
+
+    display: grid;
+    grid-auto-rows: min-content;
+    padding: 4px 8px;
+}
+main>section>h1{
+    text-align: center;
+    text-transform: uppercase;
+}
+main>section>p{
+    font-size: 0.9rem;
+    text-align: justify;
+}
+main>section>*{
+    padding: 4px 8px;
+    overflow: hidden;
+    word-wrap: break-word;
+    background-color: rgba(256, 256, 256, 0.5);
+    border-radius: 10px;
+    margin: 2px 4px;
+}
+main>button:active{
+    background-color: blueviolet;
+    box-shadow: 0 2px 2px blue;
+}
+main>aside{
+    background-color: #851e3e;
+    width: 80vw; height: 100vh;
+    position: absolute; top: 0; right: 0;
+    z-index: -999;
+}
+main>aside #close_sidebar{
+    margin: 8px 16px;
+}
+main>aside #close_sidebar:active{
+    transform: scale(1.5);
+}
+main>aside>i{
+    color: wheat;
+}
+main>aside label{
+    display: block;
+}
+main>aside>*:not(i){
+    margin: 16px 32px;
+}
+main>aside label:has(input[type="checkbox"]:checked){
+    color: #fff;
+}
+.animate_sidebar{
+    animation: sidebar1 300ms linear forwards;
+}
+@keyframes sidebar1 {
+    0%{
+        opacity: 0; right: -80vw;
+    }
+    100%{
+        opacity: 1; right: 0;
+    }
+}
+.close_sidebar{
+    animation: sidebar2 300ms ease forwards;
+}
+@keyframes sidebar2 {
+    0%{
+        opacity: 1; right: 0vw;
+    }
+    100%{
+        opacity: 0; right: -80vw; 
+        z-index: -999; display: none;
+    }
+}
+@media screen and (min-width:520px) {
+    main>section{
+        grid-template-columns: 1fr 1fr;
+    }
+    main>section>p{
+        height: 10vh;
+        text-align: center;
+        align-content: center;
+        text-transform: uppercase;
+    }
+    main>section>h1, main>section>.bhAAi{
+        grid-column: span 2;
+        height:12vh;
+        align-content: center;
+        margin-bottom: 16px;
+    }
+    main>input{
+        height: 8vh;
+        border: none;
+        padding: 16px 32px;
+    }
+}

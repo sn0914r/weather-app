@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <main>
+        <button onclick="openSidebar(this)" >⚙️</button>
+        <script>
+            const closeSidebar=r=>{
+                r.parentElement.classList.toggle('animate_sidebar')
+                r.parentElement.classList.add('close_sidebar')
+            };
+        </script>
+        <input class="initial_position_searchBar" type="search" placeholder="search here...">
+        <section></section>
+        <aside>
+            <i class="fa fa-times" aria-hidden="true" id="close_sidebar" onclick="closeSidebar(this)" ></i>
+            <script>
+                const openSidebar=r=>{
+                    if (r.parentElement.lastElementChild.classList.contains('close_sidebar'))
+                    r.parentElement.lastElementChild.classList.remove('close_sidebar')
+                    r.parentElement.lastElementChild.style.zIndex='999';
+                    r.parentElement.lastElementChild.classList.toggle('animate_sidebar')
+                }
+            </script>
+            <div class="options">
+                <h1>Select the options</h1>
+                <form id="sidebar_options" >
+                    <label>
+                        <input type="checkbox" value="longitude" name="options" checked> Longitude
+                    </label>
+                    <label>
+                        <input type="checkbox" value="latitude" name="options" checked> Latitude
+                    </label>
+                    <label>
+                        <input type="checkbox" value="Temperature" name="options" checked> Temperature
+                    </label>
+                    <label>
+                        <input type="checkbox" value="Humidity" name="options" checked> Humidity
+                    </label>
+                    <label>
+                        <input type="checkbox" value="Pressure" name="options" checked> Pressure
+                    </label>
+                    <label>
+                        <input type="checkbox" value="Date" name="options" checked> Date
+                    </label>
+                    <label>
+                        <input type="checkbox" value="minTemp" name="options"> min-temperature
+                    </label>
+                    <label>
+                        <input type="checkbox" value="maxTemp" name="options"> max-temperature
+                    </label>
+                    <label>
+                        <input type="checkbox" value="seaLevel" name="options"> Sea Level
+                    </label>
+                    <label>
+                        <input type="checkbox" value="description" name="options"> description
+                    </label>
+                </form>
+            </div>
+        </aside>
+    </main>
+    </div>
+    <script src="./js/api.js" type="module" defer></script>
+    <script src="./js/sidebar.js" defer></script>
+</body>
+</html>
